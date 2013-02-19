@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-require 'curb'
 
 queries = %w(index.html resume.html bio.html)
 
