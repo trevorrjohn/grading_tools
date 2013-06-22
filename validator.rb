@@ -1,50 +1,23 @@
 #!/usr/bin/ruby
+require 'w3c_validators'
 
-queries = %w(index.html resume.html bio.html)
+include W3CValidators
+query = "/where/index.html"
+base_url = "http://tuftsdev.github.com/"
 
-base_url = ".github.com/"
-html_prefix = "http://validator.w3.org/check?uri="
-html_postfix = "&charset=%28detect+automatically%29&doctype=Inline&group=0"
-css_prefix = "http://jigsaw.w3.org/css-validator/validator?uri="
-css_postfix = "&profile=css3&usermedium=all&warning=1&vextwarning=&lang=en"
-
-usernames = []
-html_failures = []
-css_failures = []
-errs = []
-
-usernames.each do |username|
-  puts "-"*15 + " " + username + " " + "-"*15
-
-  queries.each do |q|
-    url = html_prefix + username + base_url + q + html_postfix
-
-    response = `curl -v #{ url } --retry 3`
-
-    if response.empty?
-      puts "#{ username } did not respond"
-      errs << username
-    else reponse.match('class="invalid">Errors')
-      puts "#{username} - Errors found for #{q} in HTML"
-      html_failures << [username, q].join(" - ")
-    end
-
-    url = css_prefix + username + base_url + q + css_postfix
-
-    response = `curl -v #{ url } --retry 3`
-    if response.empty?
-      puts "#{ username } did not respond"
-      errs << username
-    else reponse.match('class="invalid">Errors')
-      puts "#{username} - Errors found for #{q} in CSS"
-      css_failures << [username, q].join(" - ")
-    end
+repos = [].shuffle
+@validator = MarkupValidator.new
+errors = {}
+repos.each do |repo|
+  url = base_url + repo + query
+  puts url
+  results = @validator.validate_uri( url )
+  if results.errors.length > 0
+    errors[repo] = results.errors
   end
 end
 
-puts "-"*15 + " Failures " + "-"*15
-html_failures.each { |f| puts f }
-css_failures.each { |f| puts f }
-
-puts "-"*15 + " Errors " + "-"*15
-errs.each { |e| puts e }
+errors.map do |repo, error|
+  puts "-"*15 + " " + repo + " " + "-"*15
+  puts error.inspect
+end

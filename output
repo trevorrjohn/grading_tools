@@ -1,0 +1,92 @@
+--------------------- Not started app ---------------------
+
+Assignment 5 - Scorecenter
+  : GET '/'
+    responds with a success (FAILED - 1)
+
+Failures:
+
+  1) Assignment 5 - Scorecenter : GET '/' responds with a success
+     Failure/Error: page.should_not have_content "Heroku | Welcome to your new app!"
+       expected #has_content?("Heroku | Welcome to your new app!") to return false, got true
+     # ./a5_spec.rb:25:in `block (3 levels) in <top (required)>'
+
+Finished in 3.12 seconds
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./a5_spec.rb:22 # Assignment 5 - Scorecenter : GET '/' responds with a success
+--------------------- tjohn ---------------------
+
+Assignment 5 - Scorecenter
+  : GET '/'
+    responds with a success
+
+Finished in 7.3 seconds
+1 example, 0 failures
+--------------------- Application error ---------------------
+
+Assignment 5 - Scorecenter
+  : GET '/'
+    responds with a success (FAILED - 1)
+
+Failures:
+
+  1) Assignment 5 - Scorecenter : GET '/' responds with a success
+     Failure/Error: page.should_not have_content "Heroku | Welcome to your new app!"
+       expected #has_content?("Heroku | Welcome to your new app!") to return false, got true
+     # ./a5_spec.rb:25:in `block (3 levels) in <top (required)>'
+
+Finished in 3.08 seconds
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./a5_spec.rb:22 # Assignment 5 - Scorecenter : GET '/' responds with a success
+--------------------- tjohn ---------------------
+
+Assignment 5 - Scorecenter
+  GET '/'
+    responds with a success
+
+Finished in 7.31 seconds
+1 example, 0 failures
+--------------------- Application error ---------------------
+
+Assignment 5 - Scorecenter
+  GET '/'
+    responds with a success (FAILED - 1)
+
+Failures:
+
+  1) Assignment 5 - Scorecenter GET '/' responds with a success
+     Failure/Error: page.should_not have_content "Heroku | Welcome to your new app!"
+       expected #has_content?("Heroku | Welcome to your new app!") to return false, got true
+     # ./a5_spec.rb:25:in `block (3 levels) in <top (required)>'
+
+Finished in 3.12 seconds
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./a5_spec.rb:22 # Assignment 5 - Scorecenter GET '/' responds with a success
+--------------------- Not started app ---------------------
+
+Assignment 5 - Scorecenter
+  GET '/'
+    responds with a success (FAILED - 1)
+
+Failures:
+
+  1) Assignment 5 - Scorecenter GET '/' responds with a success
+     Failure/Error: page.should_not have_content "Heroku | Welcome to your new app!"
+       expected #has_content?("Heroku | Welcome to your new app!") to return false, got true
+     # ./a5_spec.rb:25:in `block (3 levels) in <top (required)>'
+
+Finished in 3.12 seconds
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./a5_spec.rb:22 # Assignment 5 - Scorecenter GET '/' responds with a success
